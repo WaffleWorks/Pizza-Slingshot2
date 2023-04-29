@@ -16,3 +16,8 @@ if global.npcs_fed < global.npc_count and global.fail = false and global.npc_cou
 	global.fail = true
 	instance_create_depth(x,y,depth,obj_textpopup)	
 }
+
+if global.fail = true
+{
+	global.nextroom = room	
+}

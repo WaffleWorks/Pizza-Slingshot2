@@ -3,7 +3,7 @@ hungry = true
 left = true
 wrong_pizza = false
 
-pizza_type = choose("pepperoni","cheese","veggies","sausage")
+//pizza_type = choose("pepperoni","cheese","veggies","sausage")
 
 alarm[0] = 5
 /*

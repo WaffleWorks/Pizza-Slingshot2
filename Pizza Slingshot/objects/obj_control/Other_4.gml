@@ -59,3 +59,13 @@ if global.veggies_count > 0
 		pizza_type = "veggies"
 	}
 }
+
+//room
+switch (room)
+{
+	case Menu: global.nextroom = Level1; break;
+	case Level1: global.nextroom = Level2; break;
+	case Level2: global.nextroom = Level3; break;
+	case Level3: global.nextroom = Level3; break;
+	default: global.nextroom = Menu;
+}

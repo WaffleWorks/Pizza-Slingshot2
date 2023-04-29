@@ -45,20 +45,6 @@ if (grabbed)
 		y = ystart
 		grabbed = false
 		black_alpha = 0
-		
-		if pizza_type = "cheese"
-		{
-			global.cheese_count -= 1
-		}else if pizza_type = "pepperoni"
-		{
-			global.pepperoni_count -= 1
-		}else if pizza_type = "sausage"
-		{
-			global.sausage_count -= 1
-		}else if pizza_type = "veggies"
-		{
-			global.veggies_count -= 1
-		}
 	}
 	depth = -1
 	
@@ -80,7 +66,13 @@ if flung = true
 
 if arc = true and !place_meeting(x,y+vspeed,obj_ground)
 {
-	grav = 0.15
+	if pizza_type != "veggies"
+	{
+		grav = 0.15
+	}else
+	{
+		grav = 0
+	}
 }else
 {
 	grav = 0	
@@ -116,7 +108,7 @@ if place_meeting(x,y+vspeed,obj_ground) and arc = true
 	num_of_bounces -= 1
 }
 
-if num_of_bounces = 0
+if num_of_bounces <= 0
 {
 	instance_destroy()	
 }
@@ -124,21 +116,14 @@ if num_of_bounces = 0
 //change pizza type
 if flung = false
 {
-	while pizza_type = "cheese" and global.cheese_count <= 0
+	if pizza_type = "cheese"
 	{
-		pizza_type = choose("pepperoni","veggies","sausage")
-	}
-	while pizza_type = "pepperoni" and global.pepperoni_count <= 0
+		num_of_bounces = 1
+		bounce_init = 1
+	}else
 	{
-		pizza_type = choose("cheese","veggies","sausage")
-	}
-	while pizza_type = "sausage" and global.sausage_count <= 0
-	{
-		pizza_type = choose("pepperoni","cheese","veggies")
-	}
-	while pizza_type = "veggies" and global.veggies_count <= 0
-	{
-		pizza_type = choose("pepperoni","cheese","sausage")
+		bounce_init = 3
+		num_of_bounces = bounce_init+1
 	}
 }
 
