@@ -3,6 +3,7 @@ if (grabbed)
 {
     x = mouse_x;
     y = mouse_y;
+	black_alpha = 0
 	
 	if point_distance(mouse_x,mouse_y,obj_slingshot.x,obj_slingshot.y-40) > max_length
 	{
@@ -23,11 +24,41 @@ if (grabbed)
 		direction = angle
 		flung = true
 		angle_spd = spd
+		black_alpha = 0
+		
+		if pizza_type = "cheese"
+		{
+			global.cheese_count -= 1
+		}else if pizza_type = "pepperoni"
+		{
+			global.pepperoni_count -= 1
+		}else if pizza_type = "sausage"
+		{
+			global.sausage_count -= 1
+		}else if pizza_type = "veggies"
+		{
+			global.veggies_count -= 1
+		}
 	}else if mouse_check_button_released(mb_left)
 	{
 		x = xstart
 		y = ystart
 		grabbed = false
+		black_alpha = 0
+		
+		if pizza_type = "cheese"
+		{
+			global.cheese_count -= 1
+		}else if pizza_type = "pepperoni"
+		{
+			global.pepperoni_count -= 1
+		}else if pizza_type = "sausage"
+		{
+			global.sausage_count -= 1
+		}else if pizza_type = "veggies"
+		{
+			global.veggies_count -= 1
+		}
 	}
 	depth = -1
 	
@@ -86,6 +117,41 @@ if place_meeting(x,y+vspeed,obj_ground) and arc = true
 }
 
 if num_of_bounces = 0
+{
+	instance_destroy()	
+}
+
+//change pizza type
+if flung = false
+{
+	while pizza_type = "cheese" and global.cheese_count <= 0
+	{
+		pizza_type = choose("pepperoni","veggies","sausage")
+	}
+	while pizza_type = "pepperoni" and global.pepperoni_count <= 0
+	{
+		pizza_type = choose("cheese","veggies","sausage")
+	}
+	while pizza_type = "sausage" and global.sausage_count <= 0
+	{
+		pizza_type = choose("pepperoni","cheese","veggies")
+	}
+	while pizza_type = "veggies" and global.veggies_count <= 0
+	{
+		pizza_type = choose("pepperoni","cheese","sausage")
+	}
+}
+
+if mouse_check_button_released(mb_left)
+{
+	black_alpha = 0	
+}
+
+//destroy
+if x > room_width + 32
+{
+	instance_destroy()	
+}else if x < -32
 {
 	instance_destroy()	
 }

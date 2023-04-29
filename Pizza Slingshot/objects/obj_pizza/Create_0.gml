@@ -11,9 +11,29 @@ bouncedecay = 0.7
 img_angle = 0
 grav = 0
 num_of_bounces = 5
+black_alpha = 0
+
+next_pizza_type = ""
 
 randomize()
 pizza_type = choose("pepperoni","cheese","veggies","sausage")
+
+while pizza_type = "cheese" and global.cheese_count <= 0
+{
+	pizza_type = choose("pepperoni","veggies","sausage")
+}
+while pizza_type = "pepperoni" and global.pepperoni_count <= 0
+{
+	pizza_type = choose("cheese","veggies","sausage")
+}
+while pizza_type = "sausage" and global.sausage_count <= 0
+{
+	pizza_type = choose("pepperoni","cheese","veggies")
+}
+while pizza_type = "veggies" and global.veggies_count <= 0
+{
+	pizza_type = choose("pepperoni","cheese","sausage")
+}
 
 if pizza_type = "pepperoni"
 {

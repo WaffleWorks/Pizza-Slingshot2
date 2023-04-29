@@ -1,6 +1,12 @@
 draw_self()
-draw_sprite(spr_speechbubbleleft,hungry,x-(24*left),y-96)
-if hungry = true
+if wrong_pizza = false
+{
+	draw_sprite(spr_speechbubbleleft,hungry,x-(24*left),y-96)
+}else
+{
+	draw_sprite(spr_speechbubbleleft,2,x-(24*left),y-96)
+}
+if hungry = true and wrong_pizza = false
 {
 	if pizza_type = "pepperoni"
 	{
