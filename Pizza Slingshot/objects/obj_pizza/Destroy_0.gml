@@ -44,6 +44,14 @@ with instance_create_depth(x,y,depth,obj_alpha)
 	image_angle = other.img_angle
 }
 
+if pizza_type = "cheese" and global.cheese_count > 0 and global.npcs_who_want_cheese > 0
+or pizza_type = "pepperoni" and global.pepperoni_count > 0 and global.npcs_who_want_pepperoni > 0
+or pizza_type = "sausage" and global.sausage_count > 0 and global.npcs_who_want_sausage > 0
+or pizza_type = "veggies" and global.veggies_count > 0 and global.npcs_who_want_veggie > 0
+{
+	next_pizza_type = pizza_type
+}
+
 if global.pizza_count > 0 and global.fail = false and global.success = false
 {
 	with instance_create_depth(xstart,ystart,depth,obj_pizza)

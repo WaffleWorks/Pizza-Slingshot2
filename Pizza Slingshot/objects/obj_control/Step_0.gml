@@ -17,6 +17,24 @@ if global.npcs_fed < global.npc_count and global.fail = false and global.npc_cou
 	instance_create_depth(x,y,depth,obj_textpopup)	
 }
 
+if instance_exists(obj_pizza)
+{
+	if obj_pizza.flung = false and global.fail = false
+	{
+		if global.npcs_who_want_cheese > global.cheese_count
+		or global.npcs_who_want_pepperoni > global.pepperoni_count
+		or global.npcs_who_want_sausage > global.sausage_count
+		or global.npcs_who_want_veggie > global.veggies_count
+		{
+			global.fail = true
+			instance_create_depth(x,y,depth,obj_textpopup)	
+			
+			show_debug_message("NPC: " + string(global.npcs_who_want_cheese))
+			show_debug_message("Cheese: " + string(global.cheese_count))
+		}
+	}
+}
+
 if global.fail = true
 {
 	global.nextroom = room	

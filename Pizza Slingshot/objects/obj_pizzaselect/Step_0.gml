@@ -19,3 +19,22 @@ if mouse_check_button_released(mb_left)
 {	
 	image_alpha = 0.25
 }
+
+if room = Menu
+{
+	instance_destroy()	
+}
+
+if keyboard_check_pressed(ord("1")) and x = 22
+or keyboard_check_pressed(ord("2")) and x = 22 + 38
+or keyboard_check_pressed(ord("3")) and x = 22 + 38 + 38
+or keyboard_check_pressed(ord("4")) and x = 22 + 38 + 38 + 38
+{
+	if obj_pizza.flung = true
+	{
+		obj_pizza.next_pizza_type = pizza_type
+	}else
+	{
+		obj_pizza.pizza_type = pizza_type	
+	}
+}

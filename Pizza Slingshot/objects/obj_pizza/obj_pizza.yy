@@ -9,7 +9,10 @@
   "solid": false,
   "visible": true,
   "managed": true,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_pizzacheese",
+    "path": "sprites/spr_pizzacheese/spr_pizzacheese.yy",
+  },
   "persistent": false,
   "parentObjectId": null,
   "physicsObject": false,

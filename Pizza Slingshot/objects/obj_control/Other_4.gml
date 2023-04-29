@@ -5,7 +5,10 @@ global.fail = false
 
 global.npc_count = 0
 global.npcs_fed = 0
-
+global.npcs_who_want_cheese = 0
+global.npcs_who_want_pepperoni = 0
+global.npcs_who_want_sausage = 0
+global.npcs_who_want_veggie = 0
 
 cheese_init = global.cheese_count
 pepperoni_init = global.pepperoni_count
@@ -63,9 +66,16 @@ if global.veggies_count > 0
 //room
 switch (room)
 {
-	case Menu: global.nextroom = Level1; break;
+	case Menu: global.nextroom = Level11; break;
 	case Level1: global.nextroom = Level2; break;
 	case Level2: global.nextroom = Level3; break;
-	case Level3: global.nextroom = Level3; break;
+	case Level3: global.nextroom = Level4; break;
+	case Level4: global.nextroom = Level5; break;
+	case Level5: global.nextroom = Level6; break;
+	case Level6: global.nextroom = Level7; break;
+	case Level7: global.nextroom = Level8; break;
+	case Level8: global.nextroom = Level9; break;
+	case Level9: global.nextroom = Level10; break;
+	case Level10: global.nextroom = Level10; break;
 	default: global.nextroom = Menu;
 }

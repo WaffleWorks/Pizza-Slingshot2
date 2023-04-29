@@ -3,6 +3,9 @@ draw_set_font(fnt_small)
 draw_set_halign(fa_center)
 draw_set_valign(fa_center)
 
+if room != Menu
+{
+
 //CHEESE
 if global.cheese_count > 0
 {
@@ -114,4 +117,6 @@ if global.veggies_count > 0
 {
 	draw_sprite(spr_pizzaveggies,0,veggies_x,20)
 	draw_sprite_ext(spr_pizzablack,0,veggies_x,20,1,1,0,c_white,0.5)
+}
+
 }

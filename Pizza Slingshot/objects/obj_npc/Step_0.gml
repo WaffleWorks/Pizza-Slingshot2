@@ -6,6 +6,21 @@ if place_meeting(x,y,obj_pizza)
 		{
 			hungry = false
 			global.npcs_fed += 1
+			
+			if pizza_type = "cheese"
+			{
+				global.npcs_who_want_cheese -= 1
+			}else if pizza_type = "pepperoni"
+			{
+				global.npcs_who_want_pepperoni -= 1
+			}else if pizza_type = "sausage"
+			{
+				global.npcs_who_want_sausage -= 1
+			}else if pizza_type = "veggie"
+			{
+				global.npcs_who_want_veggie -= 1
+			}
+			
 			show_debug_message("NPCs fed: " + string(global.npcs_fed))
 			show_debug_message("NPC count: " + string(global.npc_count))
 		}else if instance_place(x,y,obj_pizza).pizza_type != pizza_type

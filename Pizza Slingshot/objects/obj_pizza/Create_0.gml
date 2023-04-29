@@ -47,7 +47,7 @@ if pizza_type = "pepperoni"
 }else if pizza_type = "sausage"
 {
 	sprite_index = spr_pizzasausage
-	bounce_init = 3
+	bounce_init = 2
 }
 num_of_bounces = bounce_init+1
 

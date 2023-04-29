@@ -1,7 +1,9 @@
-depth = 5
+depth = -5
 hungry = true
 left = true
 wrong_pizza = false
+
+image_index = irandom_range(0,sprite_get_number(sprite_index)-1)
 
 //pizza_type = choose("pepperoni","cheese","veggies","sausage")
 

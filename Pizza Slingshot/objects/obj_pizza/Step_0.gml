@@ -22,6 +22,10 @@ if (grabbed)
 		grabbed = false;
 		speed = spd
 		direction = angle
+		obj_control.temp_spd = spd
+		obj_control.temp_angle = angle
+		obj_control.temp_pizza_type = pizza_type
+		obj_control.temp_xstart = xstart
 		flung = true
 		angle_spd = spd
 		black_alpha = 0
@@ -55,6 +59,7 @@ if (grabbed)
 
 if flung = true
 {
+	depth = -10
 	if point_distance(x,y,obj_slingshot.x,obj_slingshot.y-40) <= spd and arc = false
 	{
 		arc = true
@@ -108,6 +113,52 @@ if place_meeting(x,y+vspeed,obj_ground) and arc = true
 	num_of_bounces -= 1
 }
 
+if place_meeting(x+hspeed,y,obj_destructableblock) and arc = true
+{
+	while !place_meeting(x+sign(hspeed),y,obj_destructableblock) and pizza_type != "sausage"
+	{
+		x+=sign(hspeed)
+	}
+	with obj_destructableblock
+	{
+		if place_meeting(x-other.hspeed,y,other)
+		{
+			instance_destroy()
+		}
+	}
+	if pizza_type != "sausage"
+	{
+		hspeed *= -bouncedecay
+		angle_spd *= -bouncedecay
+		num_of_bounces -= 1
+	}
+}
+if place_meeting(x,y+vspeed,obj_destructableblock) and arc = true
+{
+	while !place_meeting(x,y+sign(vspeed),obj_destructableblock) and pizza_type != "sausage"
+	{
+		y+=sign(vspeed)
+	}
+	with obj_destructableblock
+	{
+		if place_meeting(x,y-other.vspeed,other)
+		{
+			instance_destroy()
+		}
+	}
+	if pizza_type != "sausage"
+	{
+		vspeed *= -bouncedecay
+		if abs(vspeed) < 0.3
+		{
+			hspeed *= 0.98
+			angle_spd *= 0.98
+			vspeed = 0
+		}
+		num_of_bounces -= 1
+	}
+}
+
 if num_of_bounces <= 0
 {
 	instance_destroy()	
@@ -120,9 +171,17 @@ if flung = false
 	{
 		num_of_bounces = 1
 		bounce_init = 1
-	}else
-	{
+	}else if pizza_type = "pepperoni"
+	{ 
 		bounce_init = 3
+		num_of_bounces = bounce_init+1
+	}else if pizza_type = "sausage"
+	{ 
+		bounce_init = 2
+		num_of_bounces = bounce_init+1
+	}else if pizza_type = "veggies"
+	{ 
+		bounce_init = 4
 		num_of_bounces = bounce_init+1
 	}
 }
@@ -137,6 +196,13 @@ if x > room_width + 32
 {
 	instance_destroy()	
 }else if x < -32
+{
+	instance_destroy()	
+}else if y > room_height+32
+{
+	instance_destroy()	
+}
+else if y < -room_height*2
 {
 	instance_destroy()	
 }

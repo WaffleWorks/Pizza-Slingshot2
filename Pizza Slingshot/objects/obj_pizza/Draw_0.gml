@@ -1,5 +1,6 @@
 //surface_resize(application_surface, 640, 360);
 
+//grabbed
 if (grabbed)
 {
 	draw_line_width_color(x,y,obj_slingshot.x-12,obj_slingshot.y-56,3,c_black,c_black)
