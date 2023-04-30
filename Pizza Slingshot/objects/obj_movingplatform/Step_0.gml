@@ -47,24 +47,27 @@ with obj_spikes
 	}
 }
 
-if horizontal = true
+if instance_exists(obj_pizza)
 {
-	with instance_place(x+hspeed,y,obj_pizza)
+	if horizontal = true
 	{
-		if arc = true
-		{
-			obj_pizza.x += hspeed*2
-		}
-	}
-}else
-{
-	if vspeed < 0
-	{
-		with instance_place(x,y+vspeed,obj_pizza)
+		with instance_place(x+hspeed+obj_pizza.hspeed,y,obj_pizza)
 		{
 			if arc = true
 			{
-				obj_pizza.y += vspeed*2
+				//obj_pizza.x += hspeed*2
+			}
+		}
+	}else
+	{
+		if vspeed < 0
+		{
+			with instance_place(x,y+vspeed+obj_pizza.vspeed,obj_pizza)
+			{
+				if arc = true
+				{
+					//obj_pizza.y += vspeed*2
+				}
 			}
 		}
 	}

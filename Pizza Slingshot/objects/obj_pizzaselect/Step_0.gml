@@ -30,14 +30,17 @@ or keyboard_check_pressed(ord("2")) and x = 22 + 38
 or keyboard_check_pressed(ord("3")) and x = 22 + 38 + 38
 or keyboard_check_pressed(ord("4")) and x = 22 + 38 + 38 + 38
 {
-	if obj_pizza.flung = true
+	if instance_exists(obj_pizza)
 	{
-		obj_pizza.next_pizza_type = pizza_type
-		audio_play_sound(snd_blip,0,false)
-	}else
-	{
-		obj_pizza.pizza_type = pizza_type	
-		audio_play_sound(snd_blip,0,false)
+		if obj_pizza.flung = true
+		{
+			obj_pizza.next_pizza_type = pizza_type
+			audio_play_sound(snd_blip,0,false)
+		}else
+		{
+			obj_pizza.pizza_type = pizza_type	
+			audio_play_sound(snd_blip,0,false)
+		}
 	}
 }
 

@@ -91,10 +91,15 @@ vspeed += grav
 
 if place_meeting(x+hspeed,y,obj_ground) and arc = true
 {
+	if instance_place(x+hspeed,y,obj_ground).horizontal = true
+	{
+		x += instance_place(x+hspeed,y,obj_ground).spd
+	}
 	while !place_meeting(x+sign(hspeed),y,obj_ground)
 	{
 		x+=sign(hspeed)
 	}
+	
 	if pizza_type != "veggies"
 	{
 		hspeed *= -bouncedecay
