@@ -88,14 +88,22 @@ if arc = true and !place_meeting(x,y+vspeed,obj_ground)
 vspeed += grav
 
 //collision
+
 if place_meeting(x+hspeed,y,obj_ground) and arc = true
 {
 	while !place_meeting(x+sign(hspeed),y,obj_ground)
 	{
 		x+=sign(hspeed)
 	}
-	hspeed *= -bouncedecay
-	angle_spd *= -bouncedecay
+	if pizza_type != "veggies"
+	{
+		hspeed *= -bouncedecay
+		angle_spd *= -bouncedecay
+	}else
+	{
+		hspeed *= -1
+		angle_spd *= -1
+	}
 	num_of_bounces -= 1
 	if num_of_bounces > 0
 	{
@@ -113,7 +121,13 @@ if place_meeting(x,y+vspeed,obj_ground) and arc = true
 	{
 		y+=sign(vspeed)
 	}
-	vspeed *= -bouncedecay
+	if pizza_type != "veggies"
+	{
+		vspeed *= -bouncedecay
+	}else
+	{
+		vspeed *= -1
+	}
 	if abs(vspeed) < 0.3
 	{
 		hspeed *= 0.98
@@ -146,8 +160,15 @@ if place_meeting(x+hspeed,y,obj_destructableblock) and arc = true
 	}
 	if pizza_type != "sausage"
 	{
-		hspeed *= -bouncedecay
-		angle_spd *= -bouncedecay
+		if pizza_type != "veggies"
+		{
+			hspeed *= -bouncedecay
+			angle_spd *= -bouncedecay
+		}else
+		{
+			hspeed *= -1
+			angle_spd *= -1
+		}
 		num_of_bounces -= 1
 		if num_of_bounces > 0
 		{
@@ -174,7 +195,13 @@ if place_meeting(x,y+vspeed,obj_destructableblock) and arc = true
 	}
 	if pizza_type != "sausage"
 	{
-		vspeed *= -bouncedecay
+		if pizza_type != "veggies"
+		{
+			vspeed *= -bouncedecay
+		}else
+		{
+			vspeed *= -1
+		}
 		if abs(vspeed) < 0.3
 		{
 			hspeed *= 0.98
@@ -190,6 +217,23 @@ if place_meeting(x,y+vspeed,obj_destructableblock) and arc = true
 		{
 			audio_play_sound(snd_fade,0,false)
 		}
+	}
+}
+
+if place_meeting(x+hspeed,y,obj_spikes)
+{
+	if arc = true
+	{
+		instance_destroy()
+		audio_play_sound(snd_spikes,0,false)
+	}
+}
+if place_meeting(x,y+vspeed,obj_spikes)
+{
+	if arc = true
+	{
+		instance_destroy()
+		audio_play_sound(snd_spikes,0,false)
 	}
 }
 

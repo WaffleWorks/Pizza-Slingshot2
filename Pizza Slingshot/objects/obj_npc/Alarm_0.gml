@@ -9,7 +9,7 @@ if pizza_type = "cheese"
 }else if pizza_type = "sausage"
 {
 	global.npcs_who_want_sausage += 1
-}else if pizza_type = "veggie"
+}else if pizza_type = "veggies"
 {
 	global.npcs_who_want_veggie += 1
 }

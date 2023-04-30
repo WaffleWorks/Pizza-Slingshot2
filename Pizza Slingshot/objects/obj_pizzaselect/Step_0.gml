@@ -40,3 +40,8 @@ or keyboard_check_pressed(ord("4")) and x = 22 + 38 + 38 + 38
 		audio_play_sound(snd_blip,0,false)
 	}
 }
+
+if room = Menu or room = Menu2 or room = LevelSelect or room = Credits
+{
+	instance_destroy()	
+}

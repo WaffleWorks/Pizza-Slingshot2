@@ -1,4 +1,4 @@
-if keyboard_check_pressed(ord("R")) and room != Menu and room != Credits and room != LevelSelect
+if keyboard_check_pressed(ord("R")) and room != Menu and room != Credits and room != LevelSelect and room != Menu2 
 {
 	room_restart()	
 }
@@ -11,6 +11,14 @@ if global.npc_count = global.npcs_fed and global.success = false and global.npc_
 	instance_create_depth(x,y,depth,obj_textpopup)	
 	audio_play_sound(snd_complete,0,false)
 	audio_stop_sound(snd_delivered)
+
+	if global.current_level >= global.levels_unlocked
+	{
+		ini_open("save.ini");
+		ini_write_real("save", "levelsunlocked", global.current_level+1);
+		global.levels_unlocked = ini_read_real("save", "levelsunlocked", global.current_level+1);
+		ini_close();
+	}
 }
 
 if global.npcs_fed < global.npc_count and global.fail = false and global.npc_count > 0 and global.pizza_count = 0 and !instance_exists(obj_pizza)
@@ -42,33 +50,8 @@ if global.fail = true
 	global.nextroom = room	
 }
 
-if keyboard_check_pressed(ord("M"))
-{
-	global.mute = not global.mute	
-}
 
 if !audio_is_playing(snd_music)
 {
 	audio_play_sound(snd_music,10,true)
-}
-
-
-
-var num = audio_get_listener_count();
-if global.mute = false
-{
-	for( var i = 0; i < num; i++;)
-	{
-	    var info = audio_get_listener_info(i);
-	    audio_set_master_gain(info[? "index"], 0.4);
-	    ds_map_destroy(info);
-	}
-}else
-{
-	for( var i = 0; i < num; i++;)
-	{
-	    var info = audio_get_listener_info(i);
-	    audio_set_master_gain(info[? "index"], 0);
-	    ds_map_destroy(info);
-	}	
 }

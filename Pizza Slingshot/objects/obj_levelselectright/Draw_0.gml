@@ -1,0 +1,1 @@
+if enabled draw_self()

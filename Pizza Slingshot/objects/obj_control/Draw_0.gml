@@ -18,10 +18,13 @@ if temp_spd != 0 and temp_angle != 0 and temp_pizza_type != ""// and instance_ex
 		if temp_pizza_type != "veggies"
 		{
 			var yPos2 = scr_slingshot(xPos2,temp_spd,temp_angle,0,0,0.15)
+			draw_sprite_ext(spr_trajectorybubble2,0,temp_xstart+xPos2,obj_slingshot.y-40-yPos2,1,1,0,c_white,1)
 		}else
 		{
 			var yPos2 = scr_slingshot(xPos2,temp_angle,temp_angle,0,0,0)
+			draw_sprite_ext(spr_trajectorybubble2,0,temp_xstart+lengthdir_x(16*i,temp_angle),obj_slingshot.y-40+lengthdir_y(16*i,temp_angle),1,1,0,c_white,1)
 		}
-		draw_sprite_ext(spr_trajectorybubble2,0,temp_xstart+xPos2,obj_slingshot.y-40-yPos2,1,1,0,c_white,1)
+		//draw_sprite_ext(spr_trajectorybubble2,0,temp_xstart+xPos2,obj_slingshot.y-40-yPos2,1,1,0,c_white,1)
+		
 	}
 }

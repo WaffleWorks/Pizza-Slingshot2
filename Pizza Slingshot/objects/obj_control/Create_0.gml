@@ -33,7 +33,10 @@ temp_pizza_type = ""
 temp_xstart = 0
 temp_i_num = 0
 
-global.mute = false
+global.current_level = 0
 
+ini_open("save.ini");
+global.levels_unlocked = ini_read_real("save", "levelsunlocked", 1);
+ini_close();
 
 cursor_sprite = spr_cursor

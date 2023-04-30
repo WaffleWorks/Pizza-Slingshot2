@@ -5,10 +5,13 @@ if (position_meeting(mouse_x, mouse_y, id)) and mouse_check_button_pressed(mb_le
 }
 
 //clicked
-if clicked = true and mouse_check_button_released(mb_left) //mouse released
+if clicked = true and mouse_check_button_released(mb_left) and position_meeting(mouse_x,mouse_y,self) //mouse released
 {
 	clicked = false
 	do_action = true
+}else if clicked = true and mouse_check_button_released(mb_left) 
+{
+	clicked = false
 }
 
 //change image index

@@ -7,10 +7,12 @@ if grabbed = true and point_distance(x,y,obj_slingshot.x,obj_slingshot.y-40) > 1
 		if pizza_type != "veggies"
 		{
 			var yPos = scr_slingshot(xPos,spd,angle,0,0,0.15)
+			draw_sprite_ext(spr_trajectorybubble,0,xstart+xPos,obj_slingshot.y-40-yPos,1,1,0,c_white,1)
 		}else
 		{
 			var yPos = scr_slingshot(xPos,spd,angle,0,0,0)
+			draw_sprite_ext(spr_trajectorybubble,0,xstart+lengthdir_x(16*i,angle),obj_slingshot.y-40+lengthdir_y(16*i,angle),1,1,0,c_white,1)
 		}
-		draw_sprite_ext(spr_trajectorybubble,0,xstart+xPos,obj_slingshot.y-40-yPos,1,1,0,c_white,1)
+		//draw_sprite_ext(spr_trajectorybubble,0,xstart+xPos,obj_slingshot.y-40-yPos,1,1,0,c_white,1)
 	}
 }

@@ -9,3 +9,4 @@ frame_index = 0
 y_init = y
 
 //alarm[0] = 8
+unlocked = false

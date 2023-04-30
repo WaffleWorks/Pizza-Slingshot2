@@ -35,7 +35,7 @@ with instance_place(x,y-1,obj_npc)
 
 with obj_spikes
 {
-	if place_meeting(x,y,other)
+	if place_meeting(x,y,other) and dont_stick = false
 	{
 		if other.horizontal = true
 		{
@@ -51,7 +51,10 @@ if horizontal = true
 {
 	with instance_place(x+hspeed,y,obj_pizza)
 	{
-		obj_pizza.x += hspeed*2
+		if arc = true
+		{
+			obj_pizza.x += hspeed*2
+		}
 	}
 }else
 {
@@ -59,7 +62,10 @@ if horizontal = true
 	{
 		with instance_place(x,y+vspeed,obj_pizza)
 		{
-			obj_pizza.y += vspeed*2
+			if arc = true
+			{
+				obj_pizza.y += vspeed*2
+			}
 		}
 	}
 }
