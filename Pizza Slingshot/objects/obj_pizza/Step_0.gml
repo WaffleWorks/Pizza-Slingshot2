@@ -26,9 +26,11 @@ if (grabbed)
 		obj_control.temp_angle = angle
 		obj_control.temp_pizza_type = pizza_type
 		obj_control.temp_xstart = xstart
+		obj_control.temp_i_num = i_num
 		flung = true
 		angle_spd = spd
 		black_alpha = 0
+		audio_play_sound(snd_release,0,false)
 		
 		if pizza_type = "cheese"
 		{
@@ -95,6 +97,14 @@ if place_meeting(x+hspeed,y,obj_ground) and arc = true
 	hspeed *= -bouncedecay
 	angle_spd *= -bouncedecay
 	num_of_bounces -= 1
+	if num_of_bounces > 0
+	{
+		audio_play_sound(bounce_sound,0,false)
+		bounce_num += 1
+	}else if global.fail = false
+	{
+		audio_play_sound(snd_fade,0,false)
+	}
 }
 
 if place_meeting(x,y+vspeed,obj_ground) and arc = true
@@ -111,6 +121,14 @@ if place_meeting(x,y+vspeed,obj_ground) and arc = true
 		vspeed = 0
 	}
 	num_of_bounces -= 1
+	if num_of_bounces > 0
+	{
+		audio_play_sound(bounce_sound,0,false)
+		bounce_num += 1
+	}else if global.fail = false
+	{
+		audio_play_sound(snd_fade,0,false)
+	}
 }
 
 if place_meeting(x+hspeed,y,obj_destructableblock) and arc = true
@@ -131,6 +149,14 @@ if place_meeting(x+hspeed,y,obj_destructableblock) and arc = true
 		hspeed *= -bouncedecay
 		angle_spd *= -bouncedecay
 		num_of_bounces -= 1
+		if num_of_bounces > 0
+		{
+			audio_play_sound(bounce_sound,0,false)
+			bounce_num += 1
+		}else if global.fail = false
+		{
+			audio_play_sound(snd_fade,0,false)
+		}
 	}
 }
 if place_meeting(x,y+vspeed,obj_destructableblock) and arc = true
@@ -156,6 +182,14 @@ if place_meeting(x,y+vspeed,obj_destructableblock) and arc = true
 			vspeed = 0
 		}
 		num_of_bounces -= 1
+		if num_of_bounces > 0
+		{
+			audio_play_sound(bounce_sound,0,false)
+			bounce_num += 1
+		}else if global.fail = false
+		{
+			audio_play_sound(snd_fade,0,false)
+		}
 	}
 }
 
@@ -205,4 +239,24 @@ if x > room_width + 32
 else if y < -room_height*2
 {
 	instance_destroy()	
+}
+
+i_num = 32
+if pizza_type = "veggies"
+{
+	i_num = round(spd*3)
+}
+
+if bounce_num = 1
+{
+	bounce_sound = snd_bounce2
+}else if bounce_num = 2
+{
+	bounce_sound = snd_bounce3
+}else if bounce_num = 3
+{
+	bounce_sound = snd_bounce4
+}else if bounce_num = 4
+{
+	bounce_sound = snd_bounce5
 }

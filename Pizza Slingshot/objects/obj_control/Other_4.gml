@@ -76,6 +76,12 @@ switch (room)
 	case Level7: global.nextroom = Level8; break;
 	case Level8: global.nextroom = Level9; break;
 	case Level9: global.nextroom = Level10; break;
-	case Level10: global.nextroom = Level10; break;
+	case Level10: global.nextroom = Level11; break;
+	case Level11: global.nextroom = Level12; break;
+	case Level12: global.nextroom = Level13; break;
+	case Level13: global.nextroom = Level14; break;
+	case Level14: global.nextroom = Level15; break;
+	case Level15: global.nextroom = Level16; break;
+	case Level16: global.nextroom = Credits; break;
 	default: global.nextroom = Menu;
 }

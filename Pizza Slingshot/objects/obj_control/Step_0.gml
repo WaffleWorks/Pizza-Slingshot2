@@ -9,6 +9,8 @@ if global.npc_count = global.npcs_fed and global.success = false and global.npc_
 {
 	global.success = true
 	instance_create_depth(x,y,depth,obj_textpopup)	
+	audio_play_sound(snd_complete,0,false)
+	audio_stop_sound(snd_delivered)
 }
 
 if global.npcs_fed < global.npc_count and global.fail = false and global.npc_count > 0 and global.pizza_count = 0 and !instance_exists(obj_pizza)
@@ -38,4 +40,17 @@ if instance_exists(obj_pizza)
 if global.fail = true
 {
 	global.nextroom = room	
+}
+
+if !audio_is_playing(snd_music)
+{
+	audio_play_sound(snd_music,10,true)
+}
+
+var num = audio_get_listener_count();
+for( var i = 0; i < num; i++;)
+{
+    var info = audio_get_listener_info(i);
+    audio_set_master_gain(info[? "index"], 0.25);
+    ds_map_destroy(info);
 }

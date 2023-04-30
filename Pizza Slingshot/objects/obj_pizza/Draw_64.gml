@@ -1,9 +1,4 @@
 //display_set_gui_size(room_width,room_height)
-i_num = 32
-if pizza_type = "veggies"
-{
-	i_num = round(spd*3)
-}
 if grabbed = true and point_distance(x,y,obj_slingshot.x,obj_slingshot.y-40) > 16 and mouse_x < obj_slingshot.x
 {
 	for(var i = 1; i < i_num; i++)

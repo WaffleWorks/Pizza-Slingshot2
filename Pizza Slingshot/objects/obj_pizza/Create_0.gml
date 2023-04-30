@@ -12,6 +12,8 @@ img_angle = 0
 grav = 0
 black_alpha = 0
 
+i_num = 0
+
 next_pizza_type = ""
 
 
@@ -52,3 +54,6 @@ if pizza_type = "pepperoni"
 num_of_bounces = bounce_init+1
 
 alarm[0] = 1
+
+bounce_sound = snd_bounce
+bounce_num = 0

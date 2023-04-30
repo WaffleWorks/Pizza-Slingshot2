@@ -5,11 +5,14 @@ surface_resize(application_surface, 640, 360);
 i_num = 32
 if temp_pizza_type = "veggies"
 {
-	i_num = round(spd*3)
+	if instance_exists(obj_pizza)
+	{
+		i_num = round(obj_pizza.spd*3)
+	}
 }
 if temp_spd != 0 and temp_angle != 0 and temp_pizza_type != ""// and instance_exists(obj_pizza)
 {
-	for(var i = 1; i < i_num; i++)
+	for(var i = 1; i < temp_i_num; i++)
 	{
 		var xPos2 = i * 16
 		if temp_pizza_type != "veggies"

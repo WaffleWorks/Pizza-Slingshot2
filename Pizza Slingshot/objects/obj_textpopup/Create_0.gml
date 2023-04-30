@@ -16,3 +16,9 @@ fade = false
 gameover = false
 
 depth -= 300
+
+if global.fail = true and !audio_is_playing(snd_fail)
+{
+	audio_play_sound(snd_fail,0,false)
+	audio_stop_sound(snd_fade)	
+}

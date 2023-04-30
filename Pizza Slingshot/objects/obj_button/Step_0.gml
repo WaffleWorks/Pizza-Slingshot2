@@ -31,10 +31,12 @@ if do_action = true
 		if !instance_exists(obj_fadeout)
 		{
 			instance_create_depth(x,y,depth,obj_fadeout)
+			audio_play_sound(snd_blip,0,false)
 			//audio_play_sound(snd_blip,10,false)
 		}
 	}else
 	{
 		game_end()	
 	}
+	
 }

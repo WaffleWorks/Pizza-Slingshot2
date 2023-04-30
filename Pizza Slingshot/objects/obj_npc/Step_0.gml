@@ -21,6 +21,8 @@ if place_meeting(x,y,obj_pizza)
 				global.npcs_who_want_veggie -= 1
 			}
 			
+			audio_play_sound(snd_delivered,0,false)
+			
 			show_debug_message("NPCs fed: " + string(global.npcs_fed))
 			show_debug_message("NPC count: " + string(global.npc_count))
 		}else if instance_place(x,y,obj_pizza).pizza_type != pizza_type

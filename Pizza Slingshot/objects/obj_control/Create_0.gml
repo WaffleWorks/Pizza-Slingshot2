@@ -31,5 +31,9 @@ temp_spd = 0
 temp_angle = 0
 temp_pizza_type = ""
 temp_xstart = 0
+temp_i_num = 0
+
+
+
 
 cursor_sprite = spr_cursor
