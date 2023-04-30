@@ -66,7 +66,7 @@ if global.veggies_count > 0
 //room
 switch (room)
 {
-	case Menu: global.nextroom = Level11; break;
+	case Menu: global.nextroom = LevelSelect; break;
 	case Level1: global.nextroom = Level2; break;
 	case Level2: global.nextroom = Level3; break;
 	case Level3: global.nextroom = Level4; break;

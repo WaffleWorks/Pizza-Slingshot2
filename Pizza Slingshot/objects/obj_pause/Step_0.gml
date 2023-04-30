@@ -1,4 +1,4 @@
-if keyboard_check_pressed(vk_escape) and room != Menu
+if keyboard_check_pressed(vk_escape) and room != Menu and room != Credits and room != LevelSelect
 {
 	global.pause = not global.pause
 }

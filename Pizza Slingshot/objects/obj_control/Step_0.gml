@@ -1,4 +1,4 @@
-if keyboard_check_pressed(ord("R")) and room != Menu
+if keyboard_check_pressed(ord("R")) and room != Menu and room != Credits and room != LevelSelect
 {
 	room_restart()	
 }
@@ -42,15 +42,33 @@ if global.fail = true
 	global.nextroom = room	
 }
 
+if keyboard_check_pressed(ord("M"))
+{
+	global.mute = not global.mute	
+}
+
 if !audio_is_playing(snd_music)
 {
 	audio_play_sound(snd_music,10,true)
 }
 
+
+
 var num = audio_get_listener_count();
-for( var i = 0; i < num; i++;)
+if global.mute = false
 {
-    var info = audio_get_listener_info(i);
-    audio_set_master_gain(info[? "index"], 0.25);
-    ds_map_destroy(info);
+	for( var i = 0; i < num; i++;)
+	{
+	    var info = audio_get_listener_info(i);
+	    audio_set_master_gain(info[? "index"], 0.4);
+	    ds_map_destroy(info);
+	}
+}else
+{
+	for( var i = 0; i < num; i++;)
+	{
+	    var info = audio_get_listener_info(i);
+	    audio_set_master_gain(info[? "index"], 0);
+	    ds_map_destroy(info);
+	}	
 }

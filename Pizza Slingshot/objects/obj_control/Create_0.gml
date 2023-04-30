@@ -33,7 +33,7 @@ temp_pizza_type = ""
 temp_xstart = 0
 temp_i_num = 0
 
-
+global.mute = false
 
 
 cursor_sprite = spr_cursor
