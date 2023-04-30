@@ -10,6 +10,7 @@
     {"id":{"name":"spr_destructableblockdestroyedtall","path":"sprites/spr_destructableblockdestroyedtall/spr_destructableblockdestroyedtall.yy",},"order":33,},
     {"id":{"name":"spr_spikes","path":"sprites/spr_spikes/spr_spikes.yy",},"order":22,},
     {"id":{"name":"obj_pizza","path":"objects/obj_pizza/obj_pizza.yy",},"order":1,},
+    {"id":{"name":"spr_groundtiles2","path":"sprites/spr_groundtiles2/spr_groundtiles2.yy",},"order":43,},
     {"id":{"name":"Level6","path":"rooms/Level6/Level6.yy",},"order":6,},
     {"id":{"name":"Level2","path":"rooms/Level2/Level2.yy",},"order":3,},
     {"id":{"name":"scr_slingshot","path":"scripts/scr_slingshot/scr_slingshot.yy",},"order":0,},
