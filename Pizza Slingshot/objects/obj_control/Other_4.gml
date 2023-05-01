@@ -1,4 +1,5 @@
 instance_create_depth(x,y,depth,obj_fadein)
+window_set_size(1280,720)
 
 global.success = false
 global.fail = false

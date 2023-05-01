@@ -57,9 +57,9 @@
   "inheritCode": false,
   "instanceCreationOrder": [
     {"name":"inst_6CEA2896","path":"rooms/Menu/Menu.yy",},
-    {"name":"inst_54FF265E","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_43B706E4","path":"rooms/Menu/Menu.yy",},
     {"name":"inst_31A4BE1F","path":"rooms/Menu/Menu.yy",},
+    {"name":"inst_54FF265E","path":"rooms/Menu/Menu.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

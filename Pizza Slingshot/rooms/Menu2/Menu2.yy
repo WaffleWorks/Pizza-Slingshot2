@@ -59,9 +59,9 @@
   "instanceCreationOrder": [
     {"name":"inst_6CEA2896_1","path":"rooms/Menu2/Menu2.yy",},
     {"name":"inst_3E2C696F_1","path":"rooms/Menu2/Menu2.yy",},
-    {"name":"inst_54FF265E_1","path":"rooms/Menu2/Menu2.yy",},
     {"name":"inst_7C9AB022","path":"rooms/Menu2/Menu2.yy",},
     {"name":"inst_2634768F","path":"rooms/Menu2/Menu2.yy",},
+    {"name":"inst_54FF265E_1","path":"rooms/Menu2/Menu2.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

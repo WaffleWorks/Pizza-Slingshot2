@@ -16,7 +16,7 @@ if global.mute = false
 	for( var i = 0; i < num; i++;)
 	{
 	    var info = audio_get_listener_info(i);
-	    audio_set_master_gain(info[? "index"], 0.4);
+	    audio_set_master_gain(info[? "index"], 0.6);
 	    ds_map_destroy(info);
 	}
 }else
